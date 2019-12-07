@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container pt-5">
+<div class="row">
+<div class="col">
+ {{object.title}}
+  <p>{{object.content}}</p>
+  {{object.date_posted}}
+  {% if object.author == user %}
+    <a class="btn btn-outline-info" href="{% url 'post-update' object.id %}">Update</a> 
+            <a class="btn btn-outline-info" href="{% url 'post-delete' object.id %}">Delete</a> 
+    {% endif %}
+
+</div>
+</div>
+</div>
+{% endblock content %}
